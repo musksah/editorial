@@ -32,7 +32,8 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::Login');
 $routes->get('/sucursal/list', 'Sucursal::index');
-$routes->get('/sucursal/store', 'Sucursal::store');
+$routes->post('/sucursal/store', 'Sucursal::store');
+$routes->get('/empleados/report', 'Empleados::report');
 
 /**
  * --------------------------------------------------------------------
