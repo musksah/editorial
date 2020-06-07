@@ -35,7 +35,7 @@ $routes->get('/sucursal/list', 'Sucursal::index');
 $routes->post('/sucursal/store', 'Sucursal::store');
 $routes->get('/empleados/report', 'Empleados::report');
 $routes->get('/empleados/view-report', 'Empleados::reportContent');
-$routes->get('/prueba', 'Prueba::reportContent');
+$routes->get('/revista/list', 'Revista::index');
 
 /**
  * --------------------------------------------------------------------
