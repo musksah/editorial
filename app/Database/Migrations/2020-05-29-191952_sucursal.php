@@ -13,6 +13,10 @@ class Sucursal extends Migration
 				'unsigned'       => TRUE,
 				'auto_increment' => TRUE
 			],
+			'nombre'          => [
+				'type'           => 'VARCHAR',
+				'constraint'     => '150',
+			],
 			'telefono'          => [
 				'type'           => 'INT',
 				'constraint'     => 11,

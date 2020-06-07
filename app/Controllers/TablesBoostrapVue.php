@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class Tables extends BaseController
+class TablesBoostrapVue extends BaseController
 {
     protected $data = [];
     protected $headers = [];
@@ -19,11 +19,11 @@ class Tables extends BaseController
     {
         if (count($this->data[0]) > 0) {
             foreach ($this->data[0] as $key => $value) {
-                $this->headers[] = ['headerName ' => $key, 'field' => $key];
+                $this->headers[] = [$key];
             }
-            foreach ($columns as $value_columns) {
-                $this->headers[] = ['headerName ' => $value_columns, 'field' => $value_columns];
-            }
+            // foreach ($columns as $value_columns) {
+            //     $this->headers[] = [$value_columns];
+            // }
             $this->table_object['headers'] = $this->headers;
             return $this;
         } else {

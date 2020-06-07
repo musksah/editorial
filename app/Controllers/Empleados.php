@@ -13,7 +13,7 @@ use Dompdf\Dompdf;
 
 class Empleados extends ResourceController
 {
-    protected $modelName = 'App\Models\SucursalModel';
+    protected $modelName = 'App\Models\EmpleadoModel';
     protected $format    = 'json';
     protected $DataTables;
     protected $request;
@@ -43,10 +43,31 @@ class Empleados extends ResourceController
 
     public function report()
     {
-        $this->dompdf->loadHtml('<h1>HELLO Repport</h1>');
+        $html = $this->reportContent();
+        // $msg = $this->load->view('reports/empleado_reporte', '', true);
+        $this->dompdf->loadHtml($html);
         $this->dompdf->setPaper('A4', 'Landscape');
         $this->dompdf->render();
         $this->dompdf->stream();
+    }
+
+
+    public function reportContent(){
+        $query = $this->model->empleadosSucursal();
+        $data['empleados_list'] = $this->orderEmpSucursal($query);
+        return view('reports/empleado_reporte', $data);
+    }
+
+    private function orderEmpSucursal($data){
+        $new_arr = [];
+        foreach ($data as $key_list => $value_list) {
+            $new_arr['data'][$data[$key_list]['sucursal']][] = $value_list;
+            
+        }
+        foreach ($data[0] as $key_item => $value_item) {
+            $new_arr['headers'][] = $key_item; 
+        }
+        return $new_arr;
     }
 
     //--------------------------------------------------------------------

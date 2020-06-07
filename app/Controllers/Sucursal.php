@@ -8,7 +8,7 @@ header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
 
 
 use CodeIgniter\RESTful\ResourceController;
-use App\Controllers\Tables;
+use App\Controllers\TablesBoostrapVue;
 
 class Sucursal extends ResourceController
 {
@@ -18,14 +18,14 @@ class Sucursal extends ResourceController
 	protected $request;
 	
 	public function __construct() {
-		$this->DataTables = new Tables();
+		$this->DataTables = new TablesBoostrapVue();
 		$this->request = \Config\Services::request();
 	}
 
 	public function index()
 	{
 		$query = $this->model->findAll();
-		$query = $this->DataTables->data($query)->makeHeaders()->get();
+		$query = $this->DataTables->data($query)->makeHeaders(['actions'])->get();
 		return $this->respond($query);
 	}
 

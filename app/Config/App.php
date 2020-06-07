@@ -21,7 +21,7 @@ class App extends BaseConfig
 	| environments.
 	|
 	*/
-	public $baseURL = 'http://editorial-system.herokuapp.com/';
+	public $baseURL = 'http://editorial-system.herokuapp.com/public/';
 
 	/*
 	|--------------------------------------------------------------------------
