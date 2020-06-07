@@ -32,10 +32,13 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/sucursal/list', 'Sucursal::index');
+$routes->get('/sucursal/select-list', 'Sucursal::makeSelect');
 $routes->post('/sucursal/store', 'Sucursal::store');
 $routes->get('/empleados/report', 'Empleados::report');
 $routes->get('/empleados/view-report', 'Empleados::reportContent');
 $routes->get('/revista/list', 'Revista::index');
+$routes->post('/revista/store', 'Revista::store');
+$routes->post('/articulo/store', 'Articulo::store');
 
 /**
  * --------------------------------------------------------------------

@@ -19,14 +19,14 @@ class RevistaSeeder extends \CodeIgniter\Database\Seeder
                 'numero_registro' => 1002,
                 'tipo' => 'Educación',
                 'periodicidad' => 'Mensual',
-                'id_sucursal' => 1,
+                'id_sucursal' => 11,
             ],
             [
                 'titulo' => 'La ciudad',
                 'numero_registro' => 1003,
                 'tipo' => 'Informativa',
                 'periodicidad' => 'Mensual',
-                'id_sucursal' => 2,
+                'id_sucursal' => 21,
             ],
         ];
         // Using Query Builder

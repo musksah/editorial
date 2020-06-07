@@ -9,16 +9,19 @@ header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
 
 use CodeIgniter\RESTful\ResourceController;
 use App\Controllers\TablesBoostrapVue;
+use App\Controllers\SelectVueBootstrap;
 
 class Sucursal extends ResourceController
 {
 	protected $modelName = 'App\Models\SucursalModel';
 	protected $format    = 'json';
 	protected $DataTables;
+	protected $selectVB;
 	protected $request;
 	
 	public function __construct() {
 		$this->DataTables = new TablesBoostrapVue();
+		$this->selectVB = new SelectVueBootstrap();
 		$this->request = \Config\Services::request();
 	}
 
@@ -34,6 +37,12 @@ class Sucursal extends ResourceController
 		$data_insert = $this->request->getPost();
 		$insert = $this->model->create($data_insert);
 		return $this->respond($insert, 200);
+	}
+
+	public function makeSelect(){
+		$query = $this->model->findAll();
+		$query = $this->selectVB->data($query)->make('id_sucursal','nombre')->get();
+		return $this->respond($query);
 	}
 
 	//--------------------------------------------------------------------

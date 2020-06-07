@@ -11,9 +11,9 @@ use CodeIgniter\RESTful\ResourceController;
 use App\Controllers\Tables;
 use Dompdf\Dompdf;
 
-class Revista extends ResourceController
+class Articulo extends ResourceController
 {
-    protected $modelName = 'App\Models\RevistaModel';
+    protected $modelName = 'App\Models\ArticuloModel';
     protected $format    = 'json';
     protected $DataTables;
     protected $request;
