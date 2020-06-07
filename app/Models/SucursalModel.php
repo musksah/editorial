@@ -33,7 +33,7 @@ class SucursalModel extends Model{
         ->getResultArray();
     }
 
-    public function create(){
-
+    public function create($data){
+        return $this->builder()->insert($data);
     }
 }
