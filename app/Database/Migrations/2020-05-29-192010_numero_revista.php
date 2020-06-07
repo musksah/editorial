@@ -13,7 +13,7 @@ class NumeroRevista extends Migration
 				'unsigned'       => TRUE,
 				'auto_increment' => TRUE
 			],
-			'fecha timestamp default current_timestamp',
+			'fecha timestamp',
 			'numero_paginas'          => [
 				'type'           => 'INT',
 				'constraint'     => 5,
@@ -27,8 +27,8 @@ class NumeroRevista extends Migration
 				'constraint'     => 5,
 				'unsigned'       => TRUE,
 			],
-			'created_at timestamp default current_timestamp',
-			'updated_at timestamp default current_timestamp on update current_timestamp',
+			'created_at timestamp',
+			'updated_at timestamp',
 		]);
 		$this->forge->addForeignKey('id_revista','revista','id_revista');
 		$this->forge->addKey('id_numero_revista', TRUE);

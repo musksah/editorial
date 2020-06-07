@@ -51,8 +51,8 @@ class Empleado extends Migration
 				'constraint'     => 5,
 				'unsigned'       => TRUE,
 			],
-			'created_at timestamp default current_timestamp',
-			'updated_at timestamp default current_timestamp on update current_timestamp',
+			'created_at timestamp',
+			'updated_at timestamp',
 		]);
 		$this->forge->addForeignKey('id_sucursal','sucursal','id_sucursal');
 		$this->forge->addForeignKey('id_user','user','id');

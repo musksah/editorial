@@ -28,8 +28,8 @@ class Sucursal extends Migration
 				'type'           => 'VARCHAR',
 				'constraint'     => '150',
 			],
-			'created_at timestamp default current_timestamp',
-			'updated_at timestamp default current_timestamp on update current_timestamp',
+			'created_at timestamp',
+			'updated_at timestamp',
 		]);
 		$this->forge->addKey('id_sucursal', TRUE);
 		$this->forge->createTable('sucursal');

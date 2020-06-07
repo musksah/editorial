@@ -50,12 +50,16 @@ class Database extends \CodeIgniter\Database\Config
 	// 	'failover' => [],
 	// 	'port'     => 3306,
 	// ];
+
+	//mysql://bd652ac930453b:25a7e315@us-cdbr-east-05.cleardb.net/heroku_5ede30d771baee9?reconnect=true
+
+
 	public $default = [
 		'DSN'      => '',
-		'hostname' => 'db4free.net',
-		'username' => 'rootsebastian',
-		'password' => '12345678',
-		'database' => 'editorial',
+		'hostname' => 'us-cdbr-east-05.cleardb.net',
+		'username' => 'bd652ac930453b',
+		'password' => '25a7e315',
+		'database' => 'heroku_5ede30d771baee9',
 		'DBDriver' => 'MySQLi',
 		'DBPrefix' => '',
 		'pConnect' => false,

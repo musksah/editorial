@@ -38,8 +38,8 @@ class User extends Migration
 			'is_active'          => [
 				'type'           => 'TINYINT',
 			],
-			'created_at timestamp default current_timestamp',
-			'updated_at timestamp default current_timestamp on update current_timestamp',
+			'created_at timestamp',
+			'updated_at timestamp',
 			'last_update_user'       => [
 				'type'           => 'INT',
 				'null'           => TRUE,

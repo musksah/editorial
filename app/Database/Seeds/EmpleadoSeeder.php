@@ -24,8 +24,8 @@ class EmpleadoSeeder extends \CodeIgniter\Database\Seeder
                 'direccion' => 'Cra 34 # 23 - 45',
                 'telefono' => '88527452',
                 'correo' => 'pedro1@gmail.com',
-                'id_sucursal' => 1,
-                'id_user' => 2,
+                'id_sucursal' => 11,
+                'id_user' => 11,
             ],
             [
                 'identificacion' => '123477789',
@@ -34,8 +34,8 @@ class EmpleadoSeeder extends \CodeIgniter\Database\Seeder
                 'direccion' => 'Cra 34 # 23 - 45',
                 'telefono' => '85685212',
                 'correo' => 'michael@gmail.com',
-                'id_sucursal' => 2,
-                'id_user' => 3,
+                'id_sucursal' => 21,
+                'id_user' => 21,
             ],
         ];
         // Using Query Builder

@@ -15,7 +15,7 @@ class Articulo extends Migration
 				'unsigned'       => TRUE,
 				'auto_increment' => TRUE
 			],
-			'fecha timestamp default current_timestamp',
+			'fecha timestamp',
 			'titulo'          => [
 				'type'           => 'VARCHAR',
 				'constraint'     => '100',
@@ -34,8 +34,8 @@ class Articulo extends Migration
 				'constraint'     => 5,
 				'unsigned'       => TRUE,
 			],
-			'created_at timestamp default current_timestamp',
-			'updated_at timestamp default current_timestamp on update current_timestamp',
+			'created_at timestamp',
+			'updated_at timestamp',
 		]);
 		$this->forge->addKey('id_articulo', TRUE);
 		$this->forge->addForeignKey('id_numero_revista','numero_revista','id_numero_revista');
