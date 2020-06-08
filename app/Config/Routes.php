@@ -38,7 +38,10 @@ $routes->get('/empleados/report', 'Empleados::report');
 $routes->get('/empleados/view-report', 'Empleados::reportContent');
 $routes->get('/revista/list', 'Revista::index');
 $routes->post('/revista/store', 'Revista::store');
+$routes->post('/revista/delete', 'Revista::destroy');
+$routes->get('/revista/select-list-nr','Revista::makeSelectNRevista');
 $routes->post('/articulo/store', 'Articulo::store');
+$routes->get('/periodista/select-list', 'Periodista::makeSelect');
 
 /**
  * --------------------------------------------------------------------

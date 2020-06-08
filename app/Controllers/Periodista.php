@@ -9,11 +9,12 @@ header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
 
 use CodeIgniter\RESTful\ResourceController;
 use App\Controllers\Tables;
+use App\Controllers\SelectVueBootstrap;
 use Dompdf\Dompdf;
 
-class Revista extends ResourceController
+class Periodista extends ResourceController
 {
-    protected $modelName = 'App\Models\RevistaModel';
+    protected $modelName = 'App\Models\PeriodistaModel';
     protected $format    = 'json';
     protected $DataTables;
     protected $request;
@@ -64,6 +65,7 @@ class Revista extends ResourceController
         $new_arr = [];
         foreach ($data as $key_list => $value_list) {
             $new_arr['data'][$data[$key_list]['sucursal']][] = $value_list;
+            
         }
         foreach ($data[0] as $key_item => $value_item) {
             $new_arr['headers'][] = $key_item; 
@@ -71,22 +73,14 @@ class Revista extends ResourceController
         return $new_arr;
     }
 
-    public function makeSelectNRevista(){
-		$query = $this->model->getNumeroRevista();
-		$query = $this->selectVB->data($query)->make('id_numero_revista','titulo')->get();
-		return $this->respond($query);
-    }
-    
-    public function destroy()
-    {
-        $data_delete = $this->request->getPost();
-        $id_revista = $data_delete['id_revista'];
-        $result = $this->model->destroy($id_revista);
-        // echo '<pre> delete';
-        // print_r($data_delete);
+    public function makeSelect(){
+        $query = $this->model->findAll();
+        // echo '<pre>';
+        // print_r($query);
         // die;
-        return $this->respond($result);
-    }
+		$query = $this->selectVB->data($query)->make('id_periodista','nombre')->get();
+		return $this->respond($query);
+	}
 
     //--------------------------------------------------------------------
 
