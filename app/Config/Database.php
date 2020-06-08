@@ -24,6 +24,7 @@ class Database extends \CodeIgniter\Database\Config
 	 */
 	public $defaultGroup = 'default';
 
+
 	/**
 	 * The default database connection.
 	 *
@@ -54,6 +55,27 @@ class Database extends \CodeIgniter\Database\Config
 	//mysql://bd652ac930453b:25a7e315@us-cdbr-east-05.cleardb.net/heroku_5ede30d771baee9?reconnect=true
 
 	
+	// public $default = [
+	// 	'DSN'      => '',
+	// 	'hostname' => 'us-cdbr-east-05.cleardb.net',
+	// 	'username' => 'bd652ac930453b',
+	// 	'password' => '25a7e315',
+	// 	'database' => 'heroku_5ede30d771baee9',
+	// 	'DBDriver' => 'MySQLi',
+	// 	'DBPrefix' => '',
+	// 	'pConnect' => false,
+	// 	'DBDebug'  => (ENVIRONMENT !== 'production'),
+	// 	'cacheOn'  => false,
+	// 	'cacheDir' => '',
+	// 	'charset'  => 'utf8',
+	// 	'DBCollat' => 'utf8_general_ci',
+	// 	'swapPre'  => '',
+	// 	'encrypt'  => false,
+	// 	'compress' => false,
+	// 	'strictOn' => false,
+	// 	'failover' => [],
+	// 	'port'     => 3306,
+	// ];
 	public $default = [
 		'DSN'      => '',
 		'hostname' => 'us-cdbr-east-05.cleardb.net',
