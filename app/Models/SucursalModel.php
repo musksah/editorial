@@ -33,6 +33,19 @@ class SucursalModel extends Model{
         ->getResultArray();
     }
 
+    public function destroy($id)
+    {
+        $revista_numbers = $this->db->table('numero_revista')->where('id_revista', $id)->get()->getResultArray();
+        // echo '<pre>';
+        // print_r($revista_numbers);
+        // die; 
+        foreach ($revista_numbers as $value) {
+            $articulo_delete = $this->db->table('articulo')->where('id_numero_revista', $value['id_numero_revista'])->delete();
+        }
+        $revista_delete = $this->db->table('numero_revista')->where('id_revista', $id)->delete();
+        return $this->db->table('revista')->where('id_revista', $id)->delete();
+    }
+
     public function create($data){
         return $this->builder()->insert($data);
     }

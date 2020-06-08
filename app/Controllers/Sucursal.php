@@ -45,6 +45,17 @@ class Sucursal extends ResourceController
 		return $this->respond($query);
 	}
 
+	public function destroy()
+    {
+        $data_delete = $this->request->getPost();
+        $id_sucursal = $data_delete['id_sucursal'];
+        $result = $this->model->destroy($id_sucursal);
+        // echo '<pre> delete';
+        // print_r($data_delete);
+        // die;
+        return $this->respond($result);
+    }
+
 	//--------------------------------------------------------------------
 
 }

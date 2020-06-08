@@ -88,6 +88,13 @@ class Revista extends ResourceController
         return $this->respond($result);
     }
 
+    public function getPdf(){
+        $data_insert = $this->request->getGet();
+        echo '<pre>';
+        print_r($data_insert);
+        die;
+    }
+
     //--------------------------------------------------------------------
 
 }

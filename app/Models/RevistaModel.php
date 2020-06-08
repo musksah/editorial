@@ -61,7 +61,7 @@ class RevistaModel extends Model
         return $this->db->table('revista')->where('id_revista', $id)->delete();
     }
 
-    public function empleadosSucursal()
+    public function revistaArticles()
     {
         return $this->db->table('sucursal')
             ->select('empleado.nombre, empleado.apellido, empleado.correo, sucursal.nombre AS `sucursal`')
