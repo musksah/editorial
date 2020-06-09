@@ -2,9 +2,6 @@
 
 namespace App\Controllers;
 
-header('Access-Control-Allow-Origin:*');
-header('Access-Control-Allow-Headers', '*');
-header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
 
 
 use CodeIgniter\RESTful\ResourceController;
@@ -26,6 +23,12 @@ class Revista extends ResourceController
         $this->request = \Config\Services::request();
         $this->selectVB = new SelectVueBootstrap();
         $this->dompdf = new Dompdf();
+
+        $this->output
+            ->set_content_type('application/json')
+            ->set_header("Access-Control-Allow-Origin", "*")
+            ->set_header("Access-Control-Allow-Headers", "*")
+            ->set_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
     }
 
     public function index()
@@ -54,29 +57,32 @@ class Revista extends ResourceController
     }
 
 
-    public function reportContent(){
+    public function reportContent()
+    {
         $query = $this->model->empleadosSucursal();
         $data['empleados_list'] = $this->orderEmpSucursal($query);
         return view('reports/empleado_reporte', $data);
     }
 
-    private function orderEmpSucursal($data){
+    private function orderEmpSucursal($data)
+    {
         $new_arr = [];
         foreach ($data as $key_list => $value_list) {
             $new_arr['data'][$data[$key_list]['sucursal']][] = $value_list;
         }
         foreach ($data[0] as $key_item => $value_item) {
-            $new_arr['headers'][] = $key_item; 
+            $new_arr['headers'][] = $key_item;
         }
         return $new_arr;
     }
 
-    public function makeSelectNRevista(){
-		$query = $this->model->getNumeroRevista();
-		$query = $this->selectVB->data($query)->make('id_numero_revista','titulo')->get();
-		return $this->respond($query);
+    public function makeSelectNRevista()
+    {
+        $query = $this->model->getNumeroRevista();
+        $query = $this->selectVB->data($query)->make('id_numero_revista', 'titulo')->get();
+        return $this->respond($query);
     }
-    
+
     public function destroy()
     {
         $data_delete = $this->request->getPost();
@@ -88,7 +94,8 @@ class Revista extends ResourceController
         return $this->respond($result);
     }
 
-    public function getPdf(){
+    public function getPdf()
+    {
         $data_insert = $this->request->getGet();
         echo '<pre>';
         print_r($data_insert);

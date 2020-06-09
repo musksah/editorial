@@ -2,10 +2,6 @@
 
 namespace App\Controllers;
 
-header('Access-Control-Allow-Origin:*');
-header('Access-Control-Allow-Headers', '*');
-header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
-
 
 use CodeIgniter\RESTful\ResourceController;
 use App\Controllers\TablesBoostrapVue;
