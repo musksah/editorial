@@ -29,6 +29,8 @@ class Database extends \CodeIgniter\Database\Config
 	 *
 	 * @var array
 	 */
+
+	
 	// public $default = [
 	// 	'DSN'      => '',
 	// 	'hostname' => '127.0.0.1',
@@ -52,14 +54,14 @@ class Database extends \CodeIgniter\Database\Config
 	// ];
 
 	//mysql://bd652ac930453b:25a7e315@us-cdbr-east-05.cleardb.net/heroku_5ede30d771baee9?reconnect=true
-
+	//mysql://b280b55c45ae2a:fee6ba4d@us-cdbr-east-05.cleardb.net/heroku_6bfe2632c3c79d0?reconnect=true
 	
 	public $default = [
 		'DSN'      => '',
 		'hostname' => 'us-cdbr-east-05.cleardb.net',
-		'username' => 'bd652ac930453b',
-		'password' => '25a7e315',
-		'database' => 'heroku_5ede30d771baee9',
+		'username' => 'b280b55c45ae2a',
+		'password' => 'fee6ba4d',
+		'database' => 'heroku_6bfe2632c3c79d0',
 		'DBDriver' => 'MySQLi',
 		'DBPrefix' => '',
 		'pConnect' => false,

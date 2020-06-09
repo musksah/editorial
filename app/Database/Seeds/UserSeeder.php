@@ -8,6 +8,7 @@ class UserSeeder extends \CodeIgniter\Database\Seeder
     {
         $data = [
             [
+                'id'=>1,
                 'username' => 'admin',
                 'name' => 'Sebastián Huérfano',
                 'password' => password_hash("12345", PASSWORD_DEFAULT),
@@ -16,6 +17,7 @@ class UserSeeder extends \CodeIgniter\Database\Seeder
                 'is_active'    => 1,
             ],
             [
+                'id'=>2,
                 'username' => 'pedrologi',
                 'name' => 'Pedro Jesús',
                 'password' => password_hash("12345", PASSWORD_DEFAULT),
@@ -24,6 +26,7 @@ class UserSeeder extends \CodeIgniter\Database\Seeder
                 'is_active'    => 1,
             ],
             [
+                'id'=>3,
                 'username' => 'pedro123',
                 'name' => 'Pablo Martinez',
                 'password' => password_hash("12345", PASSWORD_DEFAULT),
