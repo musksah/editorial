@@ -45,9 +45,6 @@ class Empleados extends ResourceController
 
     public function report()
     {
-        $this->response->setHeader('Access-Control-Allow-Origin', '*')
-            ->setHeader('Access-Control-Allow-Headers', '*')
-            ->setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
         $html = $this->reportContent();
         // $msg = $this->load->view('reports/empleado_reporte', '', true);
         $this->dompdf->loadHtml($html);

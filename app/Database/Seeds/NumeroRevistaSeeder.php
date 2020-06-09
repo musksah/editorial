@@ -26,7 +26,7 @@ class NumeroRevistaSeeder extends \CodeIgniter\Database\Seeder
                 'fecha' => date('Y-m-d H:i:s'),
                 'numero_paginas' => 50,
                 'ejemplares_vendidos' => 5,
-                'id_revista' => 31,
+                'id_revista' => 21,
             ],
         ];
         // Using Query Builder
