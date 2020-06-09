@@ -2,8 +2,6 @@
 
 namespace App\Controllers;
 
-
-
 use CodeIgniter\RESTful\ResourceController;
 use App\Controllers\Tables;
 use Dompdf\Dompdf;
@@ -23,18 +21,15 @@ class Revista extends ResourceController
         $this->request = \Config\Services::request();
         $this->selectVB = new SelectVueBootstrap();
         $this->dompdf = new Dompdf();
-
-        $this->output
-            ->set_content_type('application/json')
-            ->set_header("Access-Control-Allow-Origin", "*")
-            ->set_header("Access-Control-Allow-Headers", "*")
-            ->set_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
     }
 
     public function index()
     {
         $query = $this->model->findAll();
         $query = $this->DataTables->data($query)->makeHeaders()->get();
+        $this->response->setHeader('Access-Control-Allow-Origin', '*')
+            ->setHeader('Access-Control-Allow-Headers', '*')
+            ->setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
         return $this->respond($query);
     }
 
@@ -43,11 +38,17 @@ class Revista extends ResourceController
         // $data_insert = $this->request->getVar('data_insert');
         $data_insert = $this->request->getPost();
         $insert = $this->model->create($data_insert);
+        $this->response->setHeader('Access-Control-Allow-Origin', '*')
+            ->setHeader('Access-Control-Allow-Headers', '*')
+            ->setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
         return $this->respond($insert, 200);
     }
 
     public function report()
     {
+        $this->response->setHeader('Access-Control-Allow-Origin', '*')
+            ->setHeader('Access-Control-Allow-Headers', '*')
+            ->setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
         $html = $this->reportContent();
         // $msg = $this->load->view('reports/empleado_reporte', '', true);
         $this->dompdf->loadHtml($html);
@@ -80,6 +81,9 @@ class Revista extends ResourceController
     {
         $query = $this->model->getNumeroRevista();
         $query = $this->selectVB->data($query)->make('id_numero_revista', 'titulo')->get();
+        $this->response->setHeader('Access-Control-Allow-Origin', '*')
+            ->setHeader('Access-Control-Allow-Headers', '*')
+            ->setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
         return $this->respond($query);
     }
 
@@ -91,15 +95,15 @@ class Revista extends ResourceController
         // echo '<pre> delete';
         // print_r($data_delete);
         // die;
+        $this->response->setHeader('Access-Control-Allow-Origin', '*')
+            ->setHeader('Access-Control-Allow-Headers', '*')
+            ->setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
         return $this->respond($result);
     }
 
     public function getPdf()
     {
         $data_insert = $this->request->getGet();
-        echo '<pre>';
-        print_r($data_insert);
-        die;
     }
 
     //--------------------------------------------------------------------

@@ -32,15 +32,20 @@ class Sucursal extends ResourceController
 	}
 
 	public function store(){
-		// $data_insert = $this->request->getVar('data_insert');
 		$data_insert = $this->request->getPost();
 		$insert = $this->model->create($data_insert);
+		$this->response->setHeader('Access-Control-Allow-Origin', '*')
+            ->setHeader('Access-Control-Allow-Headers', '*')
+            ->setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
 		return $this->respond($insert, 200);
 	}
 
 	public function makeSelect(){
 		$query = $this->model->findAll();
 		$query = $this->selectVB->data($query)->make('id_sucursal','nombre')->get();
+		$this->response->setHeader('Access-Control-Allow-Origin', '*')
+            ->setHeader('Access-Control-Allow-Headers', '*')
+            ->setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
 		return $this->respond($query);
 	}
 
@@ -51,7 +56,10 @@ class Sucursal extends ResourceController
         $result = $this->model->destroy($id_sucursal);
         // echo '<pre> delete';
         // print_r($data_delete);
-        // die;
+		// die;
+		$this->response->setHeader('Access-Control-Allow-Origin', '*')
+            ->setHeader('Access-Control-Allow-Headers', '*')
+            ->setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
         return $this->respond($result);
     }
 

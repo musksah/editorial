@@ -2,10 +2,6 @@
 
 namespace App\Controllers;
 
-header('Access-Control-Allow-Origin:*');
-header('Access-Control-Allow-Headers', '*');
-header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
-
 
 use CodeIgniter\RESTful\ResourceController;
 use App\Controllers\Tables;
@@ -33,6 +29,9 @@ class Periodista extends ResourceController
     {
         $query = $this->model->findAll();
         $query = $this->DataTables->data($query)->makeHeaders()->get();
+        $this->response->setHeader('Access-Control-Allow-Origin', '*')
+            ->setHeader('Access-Control-Allow-Headers', '*')
+            ->setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
         return $this->respond($query);
     }
 
@@ -41,11 +40,17 @@ class Periodista extends ResourceController
         // $data_insert = $this->request->getVar('data_insert');
         $data_insert = $this->request->getPost();
         $insert = $this->model->create($data_insert);
+        $this->response->setHeader('Access-Control-Allow-Origin', '*')
+            ->setHeader('Access-Control-Allow-Headers', '*')
+            ->setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
         return $this->respond($insert, 200);
     }
 
     public function report()
     {
+        $this->response->setHeader('Access-Control-Allow-Origin', '*')
+            ->setHeader('Access-Control-Allow-Headers', '*')
+            ->setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
         $html = $this->reportContent();
         // $msg = $this->load->view('reports/empleado_reporte', '', true);
         $this->dompdf->loadHtml($html);
@@ -78,7 +83,10 @@ class Periodista extends ResourceController
         // echo '<pre>';
         // print_r($query);
         // die;
-		$query = $this->selectVB->data($query)->make('id_periodista','nombre')->get();
+        $query = $this->selectVB->data($query)->make('id_periodista','nombre')->get();
+        $this->response->setHeader('Access-Control-Allow-Origin', '*')
+            ->setHeader('Access-Control-Allow-Headers', '*')
+            ->setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
 		return $this->respond($query);
 	}
 
