@@ -25,6 +25,9 @@ class Sucursal extends ResourceController
 	{
 		$query = $this->model->findAll();
 		$query = $this->DataTables->data($query)->makeHeaders(['actions'])->get();
+		$this->response->setHeader('Access-Control-Allow-Origin', '*')
+            ->setHeader('Access-Control-Allow-Headers', '*')
+            ->setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
 		return $this->respond($query);
 	}
 
